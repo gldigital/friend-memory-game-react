@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import FriendCard from "./components/FriendCard";
 import Wrapper from "./components/Wrapper";
-import Title from "./components/Title";
 import Nav from "./components/Nav";
 import friends from "./friends.json";
 import "./App.css";
@@ -10,7 +9,14 @@ class App extends Component {
 
   // Setting this.state.friends to the friends json array
   state = {
-    friends
+    friends,
+    count: 0
+  };
+
+   // handleIncrement increments this.state.count by 1
+   handleIncrement = () => {
+    
+    this.setState({ count: this.state.count + 1 });
   };
 
   removeFriend = id => {
@@ -24,18 +30,25 @@ class App extends Component {
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
     return (
-      <Wrapper>
-        <Nav />
-        <Title></Title>
-        {this.state.friends.map(friend => (
-          <FriendCard
-            removeFriend={this.removeFriend}
-            id={friend.id}
-            key={friend.id}
-            image={friend.image}
-          />
-        ))}
-      </Wrapper>
+      
+      <div className="container-fluid">
+           <Nav numClicks={this.state.count}></Nav>
+          <div className="container">
+            <Wrapper>
+              {this.state.friends.map(friend => (
+                  <FriendCard
+                    key={friend.id}
+                    handleIncrement={this.handleIncrement}
+                    removeFriend={this.removeFriend}
+                    id={friend.id}
+                    image={friend.image} />
+                    )
+                  )
+              };
+            </Wrapper>
+          </div>
+        
+      </div>
     );
   }
 }

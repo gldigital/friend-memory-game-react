@@ -1,33 +1,25 @@
 import React from "react";
-
+import "./Nav.css";
 const Nav = props => (
-    <nav className="navbar navbar-default">
-      <div className="container-fluid">
-        <div className="navbar-header">
-          <button
-            type="button"
-            className="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#navbar"
-            aria-expanded="false"
-            aria-controls="navbar"
-          >
-            <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar" />
-            <span className="icon-bar" />
-            <span className="icon-bar" />
-          </button>
-          <a className="navbar-brand" href="/">
-            Friend Memory Game
-          </a>
+  /* <h1 className="title">{props.children}</h1>; */
 
-          <ul className="nav navbar-nav navbar-right">
-            <li>Score: <span>0</span> | </li>
-            <li>  Top Score: <span>0</span></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<nav className="navbar navbar-default" role="navigation">
+
+<div class="container">
+  <div className="navbar-header">
+    <a className="navbar-brand" href="#">Clicky Game</a>
+  </div>
+
+  <div className="collapse navbar-collapse navbar-ex1-collapse">
+    <ul className="nav navbar-nav navbar-right">
+      <li><span>Clicks: &nbsp; {props.numClicks} | &nbsp; Top Score: &nbsp; {props.topscore} &nbsp;</span></li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+  
 );
+
 
 export default Nav;
