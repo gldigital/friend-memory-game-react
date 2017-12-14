@@ -1,1 +1,2 @@
-# friend-memory-game-react
+# Friend Memory Game Built with React
+
